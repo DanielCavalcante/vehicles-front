@@ -1,0 +1,78 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="vehicle">Placa</label>
+          <input
+            type="text"
+            class="form-control"
+            id="placa"
+            required
+            [(ngModel)]="vehicle.placa"
+            name="placa"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="chassi">Chassi</label>
+          <input
+            class="form-control"
+            id="chassi"
+            required
+            [(ngModel)]="vehicle.chassi"
+            name="chassi"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="renavam">Renavam</label>
+          <input
+            class="form-control"
+            id="renavam"
+            required
+            [(ngModel)]="vehicle.renavam"
+            name="renavam"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="marca">Marca</label>
+          <input
+            class="form-control"
+            id="marca"
+            required
+            [(ngModel)]="vehicle.marca"
+            name="marca"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="modelo">Modelo</label>
+          <input
+            class="form-control"
+            id="modelo"
+            required
+            [(ngModel)]="vehicle.modelo"
+            name="modelo"
+          />
+        </div>
+        <div class="form-group">
+          <label for="ano">Ano</label>
+          <input
+            class="form-control"
+            id="ano"
+            required
+            [(ngModel)]="vehicle.ano"
+            name="ano"
+          />
+        </div>
+  
+        <button (click)="create()" class="btn btn-success">Cadastrar</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Tutorial was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newVehicle()">Add</button>
+      </div>
+    </div>
+  </div>
