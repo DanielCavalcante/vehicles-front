@@ -1,1 +1,83 @@
-<p>vehicle-detail works!</p>
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="vehicle.id">
+      <h4>Detalhes</h4>
+      <div>
+        <label><strong>Placa:</strong></label>
+        {{ vehicle.placa }}
+      </div>
+      <div>
+        <label><strong>Chassi:</strong></label> 
+        {{ vehicle.chassi }}
+      </div>
+      <div>
+        <label><strong>Renavam:</strong></label> {{ vehicle.renavam }}
+      </div>
+      <div>
+        <label><strong>Marca:</strong></label> {{ vehicle.marca }}
+      </div>
+      <div>
+        <label><strong>Modelo:</strong></label> {{ vehicle.modelo }}
+      </div>
+      <div>
+        <label><strong>Ano:</strong></label> {{ vehicle.ano }}
+      </div>
+  
+      <a
+        class="badge badge-warning"
+        routerLink="/vehicles/{{ vehicle.id }}"
+      >
+        Editar
+      </a>
+    </div>
+  
+    <div *ngIf="!vehicle">
+      <br />
+      <p>Please click on a Tutorial...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="vehicle.id" class="edit-form">
+      <h4>Tutorial</h4>
+      <form>
+        <div class="form-group">
+          <label for="chassi">Chassi</label>
+          <input
+            type="text"
+            class="form-control"
+            id="chassi"
+            [(ngModel)]="vehicle.chassi"
+            name="chassi"
+          />
+        </div>
+        <div class="form-group">
+          <label for="placa">Placa</label>
+          <input
+            type="text"
+            class="form-control"
+            id="placa"
+            [(ngModel)]="vehicle.placa"
+            name="placa"
+          />
+        </div>
+      </form>
+  
+      <button class="badge badge-danger mr-2" (click)="delete()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="update()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!vehicle.id">
+      <br />
+      <p>Cannot access this Tutorial...</p>
+    </div>
+  </ng-template>

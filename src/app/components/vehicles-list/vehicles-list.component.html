@@ -1,1 +1,32 @@
-<p>vehicles-list works!</p>
+<style>
+  .list {
+    text-align: left;
+    max-width: 750px;
+    margin: auto;
+  }
+</style>
+
+<div class="list row">
+    <div class="col-md-6">
+      <h4>Carros</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let vehicle of vehicles; let i = index"
+          [class.active]="i == currentIndex"
+        >
+          {{ vehicle.modelo }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllVehicles()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <!-- <app-tutorial-details
+        [viewMode]="true"
+        [vehicle]="vehicle"
+      ></app-tutorial-details> -->
+    </div>
+  </div>

@@ -6,22 +6,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
-import { VehicleDetailComponent } from './components/vehicle-detail/vehicle-detail.component';
 import { VehiclesListComponent } from './components/vehicles-list/vehicles-list.component';
+import { VehicleDetailComponent } from './components/vehicle-detail/vehicle-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'vehicles', pathMatch: 'full' },
   { path: 'vehicles', component: VehiclesListComponent },
-  // { path: 'vehicles/:id', component: VehicleDetailComponent },
-  { path: 'vehicles/create', component: AddVehicleComponent }
+  { path: 'vehicles/create', component: AddVehicleComponent },
+  { path: 'vehicles/:id', component: VehicleDetailComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     AddVehicleComponent,
-    // VehicleDetailComponent,
-    VehiclesListComponent
+    VehiclesListComponent,
+    VehicleDetailComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

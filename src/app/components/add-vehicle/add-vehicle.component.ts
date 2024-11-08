@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Vehicle } from 'src/app/models/vehicle';
 import { VehicleService } from 'src/app/services/vehicle.service';
 
@@ -9,7 +10,8 @@ import { VehicleService } from 'src/app/services/vehicle.service';
 })
 export class AddVehicleComponent implements OnInit {
 
-  constructor(private service: VehicleService) { }
+  constructor(private service: VehicleService,     
+    private router: Router) { }
 
   vehicle: Vehicle = {
     chassi: '',
@@ -34,13 +36,11 @@ export class AddVehicleComponent implements OnInit {
       ano: this.vehicle.ano
     };
 
-    console.log(data)
-
     this.service.create(data)
       .subscribe({
         next: (res) => {
-          console.log(res);
           this.submitted = true;
+          this.router.navigate(['/vehicles']);
         },
         error: (e) => console.error(e)
       });
