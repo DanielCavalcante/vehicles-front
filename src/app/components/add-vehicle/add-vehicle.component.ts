@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Vehicle } from 'src/app/models/vehicle';
 import { VehicleService } from 'src/app/services/vehicle.service';
@@ -11,8 +12,8 @@ import { VehicleService } from 'src/app/services/vehicle.service';
 export class AddVehicleComponent implements OnInit {
 
   constructor(private service: VehicleService,     
-    private router: Router) { }
-
+    private router: Router, private formBuilder: FormBuilder, ) { }
+    
   vehicle: Vehicle = {
     chassi: '',
     placa: '',
@@ -23,7 +24,8 @@ export class AddVehicleComponent implements OnInit {
   };
   submitted = false;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   create(): void {
 
